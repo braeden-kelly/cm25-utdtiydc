@@ -11,7 +11,9 @@ import { LocationResponseItem } from './types';
       Hypertheory Training Locations
     </h2>
     @if (locations.error()) {
-      <app-error-alert message="Can't get the locations now. Sorry." />
+      <app-error-alert
+        message="There are no locations, try YouTube? {{ locations.error() }}"
+      />
     }
     <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
       @if (locations.isLoading()) {
@@ -49,6 +51,8 @@ import { LocationResponseItem } from './types';
               </div>
             </div>
           </div>
+        } @empty {
+          <p>No Locations. Try YouTube?</p>
         }
       }
     </div>
@@ -57,7 +61,14 @@ import { LocationResponseItem } from './types';
 })
 export class LocationsComponent {
   locations = resource<LocationResponseItem[], unknown>({
-    loader: () =>
-      fetch('https://api.hypertheory.com/locations').then((r) => r.json()),
+    loader: async () => {
+      const r = await fetch('https://api.hypertheory.com/locations');
+      if (r.ok) {
+        return r.json();
+      } else {
+        console.log(r.status);
+        throw new Error(r.status.toString());
+      }
+    },
   });
 }

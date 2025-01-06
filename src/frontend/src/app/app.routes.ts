@@ -13,6 +13,10 @@ export const routes: Routes = [
     component: AddressLookupComponent,
   },
   {
+    path: 'user',
+    component: AddressLookupComponent,
+  },
+  {
     path: 'locations',
     component: LocationsComponent,
   },

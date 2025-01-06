@@ -1,6 +1,13 @@
 // A responsive havigation component with links
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  signal,
+  inject,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LoginResponse, OidcSecurityService } from 'angular-auth-oidc-client';
+import { AuthStore } from './auth.store';
 
 @Component({
   selector: 'app-nav',
@@ -57,14 +64,39 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         ></a
       >
     </div>
-    <div class="navbar-end"></div>
+    <div class="navbar-end">
+      @if (store.isAuthenticated()) {
+        <button class="btn btn-warning" (click)="logOut()">
+          Log Out {{ store.sub() }}
+        </button>
+      } @else {
+        <button class="btn btn-primary" (click)="logIn()">Login</button>
+      }
+    </div>
   </div>`,
   styles: ``,
 })
 export class NavComponent {
   isMenuOpen = signal(false);
+  store = inject(AuthStore);
+  oidc = inject(OidcSecurityService);
 
+  constructor() {
+    this.oidc.checkAuth().subscribe((loginResponse: LoginResponse) => {
+      console.log(loginResponse);
+      if (loginResponse.isAuthenticated) {
+        const ud = loginResponse.userData as unknown as { sub: string };
+        this.store.logIn(ud.sub);
+      }
+    });
+  }
   toggleMenu() {
     this.isMenuOpen.update((o) => !o);
+  }
+  logIn() {
+    this.oidc.authorize();
+  }
+  logOut() {
+    this.oidc.logoff().subscribe(() => this.store.logOut());
   }
 }

@@ -69,7 +69,7 @@ const locations: LocationResponseItem[] = [
 export const locationHandlers = [
   http.get('https://api.hypertheory.com/locations', async () => {
     await delay();
-    return new HttpResponse(null, { status: 404 });
+    //return new HttpResponse(null, { status: 404 });
     return HttpResponse.json(locations);
   }),
 ];

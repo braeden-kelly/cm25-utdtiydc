@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavComponent } from './components/nav.component';
 import { RouterOutlet } from '@angular/router';
-import { OAuthService } from 'angular-oauth2-oidc';
-import { authCodeFlowConfig } from './auth.config';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +13,4 @@ import { authCodeFlowConfig } from './auth.config';
   styles: [],
   imports: [NavComponent, RouterOutlet],
 })
-export class AppComponent {
-  constructor(oauthService: OAuthService) {
-    oauthService.configure(authCodeFlowConfig);
-    oauthService.loadDiscoveryDocumentAndTryLogin();
-  }
-}
+export class AppComponent {}

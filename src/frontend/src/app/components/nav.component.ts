@@ -30,14 +30,23 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
         >
           <li>
-            <a routerLink="" [routerLinkActive]="['underline']">Homepage</a>
+            <a
+              routerLink=""
+              [routerLinkActive]="['underline']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Homepage</a
+            >
           </li>
           <li>
             <a routerLink="address-lookup" [routerLinkActive]="['underline']"
               >Address Lookup</a
             >
           </li>
-          <li><a>About</a></li>
+          <li>
+            <a routerLink="locations" [routerLinkActive]="['underline']"
+              >Locations</a
+            >
+          </li>
         </ul>
       </div>
     </div>

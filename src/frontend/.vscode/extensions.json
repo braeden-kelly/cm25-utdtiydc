@@ -7,6 +7,7 @@
     "bradlc.vscode-tailwindcss",
     "mattpocock.ts-error-translator",
     "ms-playwright.playwright",
-    "formulahendry.auto-rename-tag"
+    "formulahendry.auto-rename-tag",
+    "ms-azuretools.vscode-docker"
   ]
 }

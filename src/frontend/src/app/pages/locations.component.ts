@@ -66,7 +66,6 @@ export class LocationsComponent {
       if (r.ok) {
         return r.json();
       } else {
-        console.log(r.status);
         throw new Error(r.status.toString());
       }
     },

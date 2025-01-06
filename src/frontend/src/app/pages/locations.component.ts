@@ -13,20 +13,21 @@ import { LocationResponseItem } from './types';
     @if (locations.error()) {
       <app-error-alert message="Can't get the locations now. Sorry." />
     }
-    @if (locations.isLoading()) {
-      <div class="flex w-52 flex-col gap-4">
-        <div class="skeleton h-32 w-full"></div>
-        <div class="skeleton h-4 w-28"></div>
-        <div class="skeleton h-4 w-full"></div>
-        <div class="skeleton h-4 w-full"></div>
-      </div>
-    }
-    @if (locations.hasValue()) {
-      <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+    <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
+      @if (locations.isLoading()) {
+        @for (g of [1, 2, 3, 4, 5, 6]; track $index) {
+          <div class="card card-bordered backdrop-blur-lg">
+            <div class="flex card-body flex-col gap-4">
+              <div class="skeleton h-8 w-full"></div>
+              <div class="skeleton h-4 w-full"></div>
+              <div class="skeleton h-4 w-full"></div>
+            </div>
+          </div>
+        }
+      }
+      @if (locations.hasValue()) {
         @for (location of locations.value(); track location.id) {
-          <div
-            class="card card-bordered backdrop-brightness-150 align-text-top "
-          >
+          <div class="card card-bordered backdrop-brightness-150">
             <div class="card-body">
               <p class="card-title text-accent">
                 {{ location.name }}
@@ -49,8 +50,8 @@ import { LocationResponseItem } from './types';
             </div>
           </div>
         }
-      </div>
-    }
+      }
+    </div>
   `,
   styles: ``,
 })

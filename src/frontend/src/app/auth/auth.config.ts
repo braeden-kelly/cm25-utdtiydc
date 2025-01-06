@@ -1,8 +1,9 @@
 import { PassedInitialConfig } from 'angular-auth-oidc-client';
+import { environment } from '../../environments/environment';
 
 export const authConfig: PassedInitialConfig = {
   config: {
-    authority: 'http://localhost:9090',
+    authority: environment.AUTH_ISSUER,
     redirectUrl: window.location.origin,
     postLogoutRedirectUri: window.location.origin,
     clientId: 'spa',

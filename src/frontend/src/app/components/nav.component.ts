@@ -54,6 +54,9 @@ import { AuthStore } from './auth.store';
               >Locations</a
             >
           </li>
+          <li>
+            <a routerLink="todos" [routerLinkActive]="['underline']">Todos</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -83,7 +86,6 @@ export class NavComponent {
 
   constructor() {
     this.oidc.checkAuth().subscribe((loginResponse: LoginResponse) => {
-      console.log(loginResponse);
       if (loginResponse.isAuthenticated) {
         const ud = loginResponse.userData as unknown as { sub: string };
         this.store.logIn(ud.sub);

@@ -49,8 +49,7 @@ export class TodosComponent {
     { id: string; title: string; completed: boolean }[],
     unknown
   >({
-    loader: () =>
-      fetch('https://jsonplaceholder.typicode.com/todos').then((t) => t.json()),
+    loader: () => fetch('/api/todos').then((t) => t.json()),
   });
 
   todoListCompleted = computed(() => {

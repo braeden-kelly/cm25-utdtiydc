@@ -1,11 +1,12 @@
-export type LocationResponseItem = {
+export type TrainingLocationModel = {
   id: string;
   name: string;
-  description?: string;
   address: {
     street: string;
-    city: string;
     state: string;
+    city: string;
     zip: string;
   };
+  phone: string;
+  note?: string;
 };

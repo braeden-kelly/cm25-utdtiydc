@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw';
+import { delay, http, HttpResponse } from 'msw';
 import { TrainingLocationModel } from '../app/pages/types';
 
 const locations: TrainingLocationModel[] = [
@@ -53,5 +53,16 @@ const locations: TrainingLocationModel[] = [
 export const LocationsHandler = [
   http.get('https://api.hypertheory.com/locations', async () => {
     return HttpResponse.json(locations);
+  }),
+  http.get('https://api.hypertheory.com/locations/:id', async ({ params }) => {
+    await delay(3000);
+
+    const id = params['id'];
+    const location = locations.find((l) => l.id === id);
+    if (location) {
+      return HttpResponse.json(location);
+    } else {
+      return new HttpResponse(null, { status: 404 });
+    }
   }),
 ];

@@ -55,6 +55,11 @@ import { AuthStore } from './auth.store';
             >
           </li>
           <li>
+            <a routerLink="location-lookup" [routerLinkActive]="['underline']"
+              >Location Lookup</a
+            >
+          </li>
+          <li>
             <a routerLink="todos" [routerLinkActive]="['underline']">Todos</a>
           </li>
         </ul>

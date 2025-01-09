@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import {
-  Component,
   ChangeDetectionStrategy,
-  inject,
+  Component,
   DestroyRef,
+  inject,
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-location-add',

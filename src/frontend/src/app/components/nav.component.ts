@@ -44,11 +44,7 @@ import { AuthStore } from './auth.store';
               >Homepage</a
             >
           </li>
-          <li>
-            <a routerLink="address-lookup" [routerLinkActive]="['underline']"
-              >Address Lookup</a
-            >
-          </li>
+
           <li>
             <a routerLink="locations" [routerLinkActive]="['underline']"
               >Locations</a
@@ -82,6 +78,7 @@ import { AuthStore } from './auth.store';
         <button class="btn btn-warning" (click)="logOut()">
           Log Out {{ store.sub() }}
         </button>
+        <a class="ml-4 link" routerLink="user">Profile</a>
       } @else {
         <button class="btn btn-primary" (click)="logIn()">Login</button>
       }
@@ -97,8 +94,12 @@ export class NavComponent {
   constructor() {
     this.oidc.checkAuth().subscribe((loginResponse: LoginResponse) => {
       if (loginResponse.isAuthenticated) {
-        const ud = loginResponse.userData as unknown as { sub: string };
-        this.store.logIn(ud.sub);
+        const ud = loginResponse.userData as unknown as {
+          sub: string;
+          roles: string[] | undefined;
+        };
+        const roles = ud.roles || [];
+        this.store.logIn(ud.sub, roles);
       }
     });
   }

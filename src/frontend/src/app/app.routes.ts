@@ -1,10 +1,13 @@
-import { Routes } from '@angular/router';
+import { CanActivateFn, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home.component';
-import { AddressLookupComponent } from './pages/address-lookup.component';
+
 import { LocationsComponent } from './pages/locations.component';
 import { TodosComponent } from './pages/todos.component';
 import { LocationLookupComponent } from './pages/location-lookup.component';
 import { LocationAddComponent } from './pages/location-add.component';
+import { UserComponent } from './pages/user.component';
+import { inject } from '@angular/core';
+import { AuthStore } from './components/auth.store';
 
 export const routes: Routes = [
   {
@@ -12,16 +15,13 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'address-lookup',
-    component: AddressLookupComponent,
-  },
-  {
     path: 'todos',
     component: TodosComponent,
   },
   {
     path: 'user',
-    component: AddressLookupComponent,
+    component: UserComponent,
+    canActivate: [loggedInGuard()],
   },
   {
     path: 'locations',
@@ -36,3 +36,10 @@ export const routes: Routes = [
     component: LocationLookupComponent,
   },
 ];
+
+function loggedInGuard(): CanActivateFn {
+  return () => {
+    const store = inject(AuthStore);
+    return store.isAuthenticated();
+  };
+}

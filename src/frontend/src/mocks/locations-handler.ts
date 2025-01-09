@@ -76,8 +76,16 @@ export const LocationsHandler = [
       id: crypto.randomUUID(),
       ...body,
     };
-    locations.push(location);
+
     await delay(2000);
-    return HttpResponse.json(location);
+    if (location.name.toLowerCase() === 'taco bell') {
+      return new HttpResponse(null, {
+        status: 400,
+        statusText: 'That is silly',
+      });
+    } else {
+      locations.push(location);
+      return HttpResponse.json(location);
+    }
   }),
 ];

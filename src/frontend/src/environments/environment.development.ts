@@ -1,3 +1,3 @@
 export const environment = {
-  AUTH_ISSUER: 'https://some-real-identity-server',
+  AUTH_ISSUER: 'http://localhost:9090',
 };

@@ -1,0 +1,10 @@
+{
+    "status": "Success",
+    "ok": "false",
+    "host": "{{request.baseUrl}}",
+    "id": "{{randomValue type='UUID'}}",
+    "address": 
+      {{#formatJson}}
+        {{request.body}}
+      {{/formatJson}}
+  }

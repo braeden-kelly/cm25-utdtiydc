@@ -1,0 +1,17 @@
+GET http://localhost:8080/__admin
+
+###
+GET http://localhost:8080/__admin/mappings
+
+### Reset
+POST http://localhost:8080/__admin/reset
+
+### Requests
+GET http://localhost:8080/__admin/requests
+### 
+POST http://localhost:8080/do-it
+Content-Type: application/json
+
+{
+  "hello": "cat"
+}

@@ -77,7 +77,7 @@ export const LocationsHandler = [
       ...body,
     };
     locations.push(location);
-    await delay();
+    await delay(2000);
     return HttpResponse.json(location);
   }),
 ];

@@ -60,6 +60,11 @@ import { AuthStore } from './auth.store';
             >
           </li>
           <li>
+            <a routerLink="location-add" [routerLinkActive]="['underline']"
+              >Add a Location</a
+            >
+          </li>
+          <li>
             <a routerLink="todos" [routerLinkActive]="['underline']">Todos</a>
           </li>
         </ul>

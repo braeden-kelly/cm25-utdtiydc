@@ -4,6 +4,7 @@ import { AddressLookupComponent } from './pages/address-lookup.component';
 import { LocationsComponent } from './pages/locations.component';
 import { TodosComponent } from './pages/todos.component';
 import { LocationLookupComponent } from './pages/location-lookup.component';
+import { LocationAddComponent } from './pages/location-add.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'locations',
     component: LocationsComponent,
+  },
+  {
+    path: 'location-add',
+    component: LocationAddComponent,
   },
   {
     path: 'location-lookup',

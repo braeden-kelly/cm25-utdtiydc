@@ -10,3 +10,5 @@ export type TrainingLocationModel = {
   phone: string;
   note?: string;
 };
+
+export type TrainingLocationCreateModel = Omit<TrainingLocationModel, 'id'>;

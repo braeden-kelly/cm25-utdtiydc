@@ -1,5 +1,8 @@
 import { delay, http, HttpResponse } from 'msw';
-import { TrainingLocationModel } from '../app/pages/types';
+import {
+  TrainingLocationCreateModel,
+  TrainingLocationModel,
+} from '../app/pages/types';
 
 const locations: TrainingLocationModel[] = [
   {
@@ -64,5 +67,17 @@ export const LocationsHandler = [
     } else {
       return new HttpResponse(null, { status: 404 });
     }
+  }),
+  http.post('https://api.hypertheory.com/locations', async ({ request }) => {
+    const body =
+      (await request.json()) as unknown as TrainingLocationCreateModel;
+
+    const location: TrainingLocationModel = {
+      id: crypto.randomUUID(),
+      ...body,
+    };
+    locations.push(location);
+    await delay();
+    return HttpResponse.json(location);
   }),
 ];

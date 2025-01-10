@@ -1,17 +1,11 @@
+### Link to the Admin Response
 GET http://localhost:8080/__admin
 
-###
+### See The Mappings
 GET http://localhost:8080/__admin/mappings
 
-### Reset
+### Reset  (reload mappings, files, etc.)
 POST http://localhost:8080/__admin/reset
 
-### Requests
+### Requests  (See the requests that have been  received - useful for debugging)
 GET http://localhost:8080/__admin/requests
-### 
-POST http://localhost:8080/do-it
-Content-Type: application/json
-
-{
-  "hello": "cat"
-}

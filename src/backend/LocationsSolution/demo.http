@@ -1,0 +1,7 @@
+POST http://localhost:8080/friends
+Content-Type:  application/json
+
+{
+    "firstName": "Henry",
+    "lastName": "Gonzalez"
+}

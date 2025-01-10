@@ -1,0 +1,14 @@
+{
+
+    "request": {
+        "urlPath": "/street-address",
+        "method": "GET"
+    },
+    "response": {
+        "status":  200,
+        "transformers": ["response-template"],
+        "bodyFileName": "bad-address.json",
+        "fixedDelayMilliseconds": 0
+
+    }
+}

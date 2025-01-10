@@ -1,5 +1,17 @@
 ### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=JetBrains Rider
+POST http://localhost:1337/locations
+Content-Type: application/json
+
+{
+  "name": "Taco Bell",
+  "phone": "555-1212",
+  "note": "Good food",
+  "address": {
+    "street": "119 Mockingird Court",
+    "city": "Cleveland",
+    "state": "OH",
+    "zip": "44319"
+  }
+}
 
 ###

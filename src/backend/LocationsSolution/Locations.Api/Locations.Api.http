@@ -4,3 +4,5 @@ GET {{Locations.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET http://localhost:8080/street-address?auth-id=9999ID?auth-token=9999Token&license=testing-license-local&street=119+Mockingird+Court&city=Cleveland&state=OH&zip=44319

@@ -7,6 +7,5 @@
         "status": 201,
         "transformers": ["response-template"],
         "bodyFileName":  "added-friend.json"
-
     }
 }

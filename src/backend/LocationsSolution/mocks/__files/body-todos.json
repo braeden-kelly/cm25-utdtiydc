@@ -1,0 +1,20 @@
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "Clean Garage",
+    "completed": false
+  },
+  {
+    "userId": 1,
+    "id": 2,
+    "title": "Shovel Snow",
+    "completed": true
+  },
+  {
+    "userId": 1,
+    "id": 3,
+    "title": "Cancel United Card",
+    "completed": false
+  }
+]

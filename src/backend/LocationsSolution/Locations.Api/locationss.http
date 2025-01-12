@@ -3,15 +3,17 @@ POST http://localhost:1337/locations
 Content-Type: application/json
 
 {
-  "name": "Taco Bell",
+  "name": "Cat Spit",
   "phone": "555-1212",
-  "note": "Good food",
+  "note": "Hypertheory World Headquarters",
   "address": {
-    "street": "119 Mockingird Court",
+    "street": "118 S. Marginal",
     "city": "Cleveland",
     "state": "OH",
-    "zip": "44319"
+    "zip": "44703"
   }
 }
 
 ###
+
+GET http://localhost:1337/locations

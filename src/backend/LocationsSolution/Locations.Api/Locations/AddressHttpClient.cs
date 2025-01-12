@@ -1,3 +1,4 @@
+using System.Reflection.Metadata.Ecma335;
 using System.Text.Json.Serialization;
 using System.Web;
 using Microsoft.Extensions.Options;
@@ -20,14 +21,15 @@ public class AddressHttpClient(HttpClient httpClient,  IOptions<AddressAuthOptio
       }
       else
       {
+         var addressLine = content.First().DeliveryLine;
          var component = content.FirstOrDefault()?.Components;
          if (component == null)
          {
             return null;
          }
 
-         return new Address($"{component.PrimaryNumber}  {component.StreetName} {component.StreetSuffix}",
-            component.CityName, component.StateAbbreviation, component.ZipCode);
+         return new Address(addressLine,
+            component.CityName, component.StateAbbreviation, component.ZipCode + " " + component.Plus4Zip);
        
       }
 
@@ -36,6 +38,8 @@ public class AddressHttpClient(HttpClient httpClient,  IOptions<AddressAuthOptio
 
 public class AddressResultModel
 {
+   [JsonPropertyName("delivery_line_1")]
+   public string DeliveryLine { get; set; } = string.Empty;
    [JsonPropertyName("components")] public AddressResultComponentModel Components { get; set; } = new();
 }
 

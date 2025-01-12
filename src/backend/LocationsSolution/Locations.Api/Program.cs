@@ -1,4 +1,5 @@
 using Locations.Api.Locations;
+using Marten;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+var connectionString = builder.Configuration.GetConnectionString("data") ?? throw new Exception("Connection string not found");
+builder.Services.AddMarten(options =>
+{
+    options.Connection(connectionString);
+}).UseLightweightSessions();
 
 builder.Services.Configure<AddressAuthOptions>(builder.Configuration.GetSection(AddressAuthOptions.AddressAuth));
 var authUrl  = builder.Configuration.GetValue<string>("addressVerificationUrl") ??  throw new Exception("authUrl not configured");

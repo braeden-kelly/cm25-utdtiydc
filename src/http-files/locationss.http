@@ -1,0 +1,30 @@
+
+
+
+
+### GET request to example server
+
+GET http://localhost:1337/locations
+
+
+### POST Request To Add Location
+POST http://localhost:1337/locations
+Content-Type: application/json
+
+{
+  "name": "Kalahari Resort",
+  "phone": "555-1212",
+  "note": "Codemash  2025",
+  "address": {
+    "street": "118 S. Wild St",
+    "city": "Sandusky",
+    "state": "OH",
+    "zip": "44703"
+  }
+}
+
+###  The Request to WireMock
+#  Based on https://www.smarty.com/docs/cloud/us-street-api
+
+GET http://localhost:8080/street-address?auth-id=9999ID?auth-token=9999Token&license=testing-license-local&street=119+Mockingird+Court&city=Cleveland&state=OH&zip=44319
+

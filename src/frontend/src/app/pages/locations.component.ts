@@ -1,10 +1,8 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  signal,
-  resource,
+  Component,
+  resource
 } from '@angular/core';
-import { TrainingLocationModel } from './types';
 
 @Component({
   selector: 'app-locations',
@@ -15,7 +13,7 @@ import { TrainingLocationModel } from './types';
       <h2 class="text-2xl font-extrabold text-accent">
         Hypertheory Training Locations
       </h2>
-    </div>
+    </div> 
     @if (locationsResource.isLoading()) {
       <p>Loading your data</p>
     } @else {

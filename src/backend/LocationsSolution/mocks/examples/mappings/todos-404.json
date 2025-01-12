@@ -1,9 +1,0 @@
-{
-    "request": {
-        "url": "/todos",
-        "method": "GET"
-    },
-    "response":  {
-        "status":  404
-    }
-}

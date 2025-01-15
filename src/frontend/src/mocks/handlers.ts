@@ -1,4 +1,4 @@
+import { TodosHandler } from "./todos-handler";
 
 
-
-export const handlers = [];
+export const handlers = [...TodosHandler];

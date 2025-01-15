@@ -1,0 +1,14 @@
+{{#formatJson}}
+    {{#assign 'base'}}
+        {
+            "status": "Success",
+            "id": "{{randomValue type='UUID'}}"
+        }
+    {{/assign}}
+
+    {{#assign 'friendRequest'}}
+        {{request.body}}
+    {{/assign}}
+
+    {{jsonMerge base friendRequest}}
+{{/formatJson}}

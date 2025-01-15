@@ -1,0 +1,16 @@
+{
+  "id" : "aa7bf3f1-97c1-3f98-90ee-dc91d5a952fe",
+  "request" : {
+    "url" : "/todos",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-todos-minimal.json",
+    "headers" : {
+
+      "Content-Type" : "application/json; charset=utf-8"
+    }
+  },
+  "uuid" : "aa7bf3f1-97c1-3f98-90ee-dc91d5a952fe"
+}

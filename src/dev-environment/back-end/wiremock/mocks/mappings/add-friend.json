@@ -1,0 +1,11 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/friends"
+    }, 
+    "response": {
+        "status": 201,
+        "transformers": ["response-template"],
+        "bodyFileName":  "added-friend.json"
+    }
+}

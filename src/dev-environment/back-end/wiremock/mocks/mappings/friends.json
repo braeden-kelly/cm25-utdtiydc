@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method":  "GET",
+        "url": "/friends"
+    },
+    "response":  {
+        "status": 200,
+        "body": "Hello, Codemash!  It's a beautiful day!",
+        "headers": {
+            "Content-Type": "text/plain"
+        }
+    }
+}

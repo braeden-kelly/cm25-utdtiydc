@@ -1,5 +1,5 @@
 import { delay, http, HttpResponse } from "msw";
-import { TrainingLocationModel } from "../app/pages/types";
+import { TrainingLocationCreateModel, TrainingLocationModel } from "../app/pages/types";
 
 const locations:TrainingLocationModel[] = [
     {
@@ -41,5 +41,18 @@ export const LocationsHandler = [
             return new HttpResponse(null, { status: 404, statusText: 'No Location with that id'})
         }
 
+    }),
+    http.post('https://api.hypertheory.com/locations', async ({request}) => {
+
+        const postedBody = await    request.json() as unknown as TrainingLocationCreateModel; 
+        // to do error handling or not?
+        const actualBody: TrainingLocationModel = {
+            id: crypto.randomUUID(),
+            ...postedBody
+        }
+        await delay(2000)
+        locations.push(actualBody)
+        return new HttpResponse(null, { status: 400 })
+        return HttpResponse.json(actualBody);
     })
 ]

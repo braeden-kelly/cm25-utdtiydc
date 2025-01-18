@@ -1,0 +1,2 @@
+- https://github.com/HypertheoryTraining
+- https://discord.com/channels/1127340805741359164/1327998347675435100

@@ -1,2 +1,13 @@
 - https://github.com/HypertheoryTraining
 - https://discord.com/channels/1127340805741359164/1327998347675435100
+- https://github.com/thomhurst/TUnit
+- https://martinfowler.com/bliki/BeckDesignRules.html
+- https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition
+- https://jeremydmiller.com/2024/09/29/my-recommendations-for-a-test-automation-strategy/
+- https://test-doubles.hypertheory.com/
+- https://www.npmjs.com/package/degit
+- https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/javascript/overrides
+- https://mswjs.io/
+- https://applied-angular.hypertheory.com/
+- https://pact.io/
+- https://wiremock.org/docs

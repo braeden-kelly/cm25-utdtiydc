@@ -1,0 +1,6 @@
+- TUnit is a new testing framework that he mentioned in passing
+  - May be worth evaluating
+- Pact
+  - Would be extremely helpful for enterprise services
+  - Creates a set of tests to verify contracts with consumers (i.e. expected data is in a format that can be properly consumed by downstream systems)
+- humao.rest-client is a vscode extension that lets you run http calls in vscode directly![image](https://github.com/user-attachments/assets/c76e86f9-4ed2-495c-8d41-c727c658ea6c)
